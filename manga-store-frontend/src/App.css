@@ -1,0 +1,11 @@
+.manga-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.main-container {
+  max-width: 1200px;
+  margin: auto;
+}
