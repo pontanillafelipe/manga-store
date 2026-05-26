@@ -16,10 +16,10 @@ Proyecto fullstack de tienda de mangas.
 ## ▶️ Cómo ejecutar
 
 ### Backend
-cd manga-store
+cd manga-store,
 ./mvnw spring-boot:run
 
 ### Frontend
-cd manga-store-frontend
-npm install
+cd manga-store-frontend,
+npm install,
 npm run dev
