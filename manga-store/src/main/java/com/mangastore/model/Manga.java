@@ -14,6 +14,10 @@ public class Manga {
 
     private String author;
 
+    private String genre;
+
+    private String editorial;
+
     private Double price;
 
     private Integer stock;
@@ -25,14 +29,17 @@ public class Manga {
 
     public Manga() {}
 
-    public Manga(Long id, String title, String author, Double price, Integer stock, String description, String imageUrl) {
+    public Manga(Long id, String title, String author, String genre, String editorial, Double price, Integer stock, String description, String imageUrl) {
         this.id = id;
         this.title = title;
         this.author = author;
+        this.genre = genre;
+        this.editorial = editorial;
         this.price = price;
         this.stock = stock;
         this.description = description;
         this.imageUrl = imageUrl;
+
     }
 
     public Long getId() { return id; }
@@ -46,6 +53,14 @@ public class Manga {
     public String getAuthor() { return author; }
 
     public void setAuthor(String author) { this.author = author; }
+
+    public String getGenre() { return genre; }
+
+    public void setGenre(String genre) { this.genre = genre; }
+
+    public String getEditorial() { return editorial; }
+
+    public void setEditorial(String editorial) { this.editorial = editorial; }
 
     public Double getPrice() { return price; }
 

@@ -11,11 +11,13 @@ function EditManga() {
   const navigate = useNavigate();
 
   const [manga, setManga] = useState({
-    title: "",
-    author: "",
-    price: "",
-    stock: "",
-    description: ""
+  title: "",
+  author: "",
+  price: "",
+  stock: "",
+  description: "",
+  genre: "",
+  editorial: ""
   });
 
   useEffect(() => {
@@ -32,6 +34,9 @@ function EditManga() {
     fetchManga();
 
   }, [id]);
+
+  const [genre, setGenre] = useState("");
+  const [editorial, setEditorial] = useState("");
 
   const handleChange = (e) => {
 
@@ -80,6 +85,34 @@ function EditManga() {
           value={manga.author}
           onChange={handleChange}
         />
+      </div>
+
+      <div className="admin-form-group">
+        <label>Género</label>
+        <select
+          name="genre"
+          value={manga.genre}
+          onChange={handleChange}
+        >
+          <option value="">Select genre</option>
+          <option value="shounen">Shounen</option>
+          <option value="seinen">Seinen</option>
+          <option value="shoujo">Shoujo</option>
+        </select>
+      </div>
+
+      <div className="admin-form-group">
+        <label>Editorial</label>
+        <select
+          name="editorial"
+          value={manga.editorial}
+          onChange={handleChange}
+        >
+          <option value="">Select editorial</option>
+          <option value="ivrea">Ivrea</option>
+          <option value="panini">Panini</option>
+          <option value="norma">Norma</option>
+        </select>
       </div>
 
       <div className="admin-form-group">

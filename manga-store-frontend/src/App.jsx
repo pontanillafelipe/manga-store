@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { getMangas, searchMangas } from "./services/mangaService";
 import MangaCard from "./components/MangaCard";
+import Footer from "./components/Footer";
 import { CartContext } from "./context/CartContext";
 import Navbar from "./components/Navbar";
 import MenuBar from "./components/MenuBar";
@@ -11,6 +12,9 @@ import CreateManga from "./pages/CreateManga";
 import EditManga from "./pages/EditManga";
 import CartPage from "./pages/CartPage";
 import Banner from "./components/Banner";
+import Login from "./pages/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
+import GenreSection from "./components/GenreSection";
 import "./App.css";
 
 function App() {
@@ -41,7 +45,13 @@ function App() {
     setMangas(results);
   };
 
+
+
   return (
+  <>
+
+    <div className="top-line"></div>
+
     <div className="main-container">
 
       <Navbar
@@ -61,6 +71,8 @@ function App() {
           element={
             <div style={{ padding: "20px" }}>
 
+              <GenreSection />
+
               <div className="manga-grid">
                 {mangas.map(manga => (
                   <MangaCard key={manga.id} manga={manga} />
@@ -73,16 +85,43 @@ function App() {
 
         <Route path="/manga/:id" element={<MangaDetail />} />
 
-        {/* ADMIN */}
-        <Route path="/admin/mangas" element={<AdminMangas />} />
-        <Route path="/admin/mangas/create" element={<CreateManga />} />
-        <Route path="/admin/mangas/edit/:id" element={<EditManga />} />
+        <Route
+          path="/admin/mangas"
+          element={
+            <ProtectedRoute adminOnly={true}>
+              <AdminMangas />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/mangas/create"
+          element={
+            <ProtectedRoute adminOnly={true}>
+              <CreateManga />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/mangas/edit/:id"
+          element={
+            <ProtectedRoute adminOnly={true}>
+              <EditManga />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route path="/login" element={<Login />} />
 
         <Route path="/cart" element={<CartPage />} />
 
-      </Routes>
+      </Routes>    
 
     </div>
+
+          <Footer />
+  </>
   );
 }
 

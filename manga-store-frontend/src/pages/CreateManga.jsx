@@ -12,7 +12,9 @@ function CreateManga() {
   author: "",
   price: "",
   stock: "",
-  description: ""
+  description: "",
+  genre: "",
+  editorial: ""
   });
 
 const [image, setImage] = useState(null);
@@ -27,6 +29,9 @@ const [image, setImage] = useState(null);
     });
 
   };
+
+const [genre, setGenre] = useState("");
+const [editorial, setEditorial] = useState("");
 
   const handleSubmit = async (e) => {
 
@@ -68,6 +73,34 @@ const [image, setImage] = useState(null);
         onChange={handleChange}
         required
       />
+    </div>
+
+    <div className="admin-form-group">
+      <label>Género</label>
+      <select
+        name="genre"
+        value={manga.genre}
+        onChange={handleChange}
+      >
+        <option value="">Select genre</option>
+        <option value="shounen">Shounen</option>
+        <option value="seinen">Seinen</option>
+        <option value="shoujo">Shoujo</option>
+      </select>
+    </div>
+
+    <div className="admin-form-group">
+      <label>Editorial</label>
+      <select
+        name="editorial"
+        value={manga.editorial}
+        onChange={handleChange}
+      >
+        <option value="">Select editorial</option>
+        <option value="ivrea">Ivrea</option>
+        <option value="panini">Panini</option>
+        <option value="norma">Norma</option>
+      </select>
     </div>
 
     <div className="admin-form-group">

@@ -1,13 +1,30 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { AuthContext } from "../context/AuthContext";
 import logo from "../assets/mangas/logo.png";
-import { FaShoppingCart, FaSearch } from "react-icons/fa";
+import { FaShoppingCart, FaSearch, FaUserCircle, FaShieldAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { useEffect, useState } from "react";
+
 
 function Navbar({ search, setSearch, onSearch }) {
 
   const { cart } = useContext(CartContext);
+  const { user, logout } = useContext(AuthContext);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+
+  }, []);
 
   const totalItems = cart.reduce(
     (total, item) => total + item.quantity,
@@ -21,34 +38,81 @@ function Navbar({ search, setSearch, onSearch }) {
   };
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
 
-      {/* SEARCH */}
-      <div className="nav-left">
-        <div className="search-box">
-          <FaSearch className="search-icon"/>
+          {/* IZQUIERDA */}
+    <div className="nav-left">
 
-          <input
-            type="text"
-            placeholder="Buscar manga..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            onKeyDown={handleKeyDown}
-          />
-        </div>
-      </div>
-
-      {/* LOGO */}
       <Link to="/">
-        <img src={logo} alt="Manga X Store" className="logo"/>
+        <img
+          src={logo}
+          alt="Manga X Store"
+          className="logo"
+        />
       </Link>
 
-      {/* CART */}
-      <div className="nav-right">
-        <Link to="/cart" className="cart-btn">
-          <FaShoppingCart /> {totalItems}
-        </Link>
+    </div>
+
+    {/* CENTRO */}
+    <div className="nav-center">
+
+      <div className="search-box">
+
+        <FaSearch className="search-icon"/>
+
+        <input
+          type="text"
+          placeholder="Buscar manga..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+
       </div>
+
+    </div>
+
+    {/* DERECHA */}
+    <div className="nav-right">
+
+      <Link to="/cart" className="icon-btn">
+        <FaShoppingCart />
+      </Link>
+
+      {user ? (
+
+      <div className="user-section">
+
+        {/* BOTÓN ADMIN */}
+        {user.role === "admin" && (
+          <Link to="/admin/mangas" className="admin-icon-btn" title="Panel Admin">
+            <FaShieldAlt />
+          </Link>
+        )}
+
+        <FaUserCircle className="profile-icon" />
+
+        <span className="user-name">
+          {user.name}
+        </span>
+
+        <button
+          className="logout-btn"
+          onClick={logout}
+        >
+          Log Out
+        </button>
+
+      </div>
+
+    ) : (
+
+      <Link to="/login" className="login-btn">
+        <FaUserCircle />
+      </Link>
+
+    )}
+    </div>
 
     </nav>
   );

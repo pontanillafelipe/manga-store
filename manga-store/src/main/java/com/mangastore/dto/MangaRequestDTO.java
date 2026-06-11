@@ -12,6 +12,12 @@ public class MangaRequestDTO {
     @NotBlank
     private String author;
 
+    @NotBlank
+    private String genre;
+
+    @NotBlank
+    private String editorial;
+
     @NotNull
     @Min(0)
     private Double price;
@@ -36,6 +42,22 @@ public class MangaRequestDTO {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getEditorial() {
+        return editorial;
+    }
+
+    public void setEditorial(String editorial) {
+        this.editorial = editorial;
     }
 
     public Double getPrice() {
