@@ -1,0 +1,147 @@
+.carousel-section {
+  margin: 60px 0;
+}
+
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.carousel-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+}
+
+.carousel-link {
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.carousel-link:hover {
+  color: #ff7a18;
+  transform: translateX(2px);
+}
+
+/* CARRUSEL */
+
+.carousel-wrapper {
+  display: grid;
+  grid-template-columns: 45px minmax(0, 1fr) 45px;
+  align-items: center;
+  gap: 8px;
+}
+
+.carousel-wrapper .swiper {
+  width: 100%;
+  padding: 8px 5px 45px;
+}
+
+/*
+  La card mantiene prácticamente
+  el mismo tamaño que en catálogo
+*/
+
+.carousel-wrapper .manga-image-container,
+.carousel-wrapper .manga-image {
+  height: 300px;
+}
+
+/* FLECHAS */
+
+.carousel-prev,
+.carousel-next {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: white;
+  color: #ff7a18;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background: #ff7a18;
+  color: white;
+  transform: scale(1.08);
+}
+
+/* PAGINACIÓN */
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+
+  background: #c9c9c9 !important;
+  opacity: 1;
+
+  transition: 0.25s;
+}
+
+.swiper-pagination-bullet-active {
+  width: 24px;
+  border-radius: 999px;
+  background: #ff7a18 !important;
+}
+
+/* TABLET */
+
+@media (max-width: 1199px) {
+  .carousel-wrapper .manga-image-container,
+  .carousel-wrapper .manga-image {
+    height: 280px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 767px) {
+  .carousel-section {
+    margin: 40px 0;
+  }
+
+  .carousel-title {
+    font-size: 20px;
+  }
+
+  .carousel-link {
+    font-size: 13px;
+  }
+
+  .carousel-wrapper {
+    display: block;
+  }
+
+  .carousel-prev,
+  .carousel-next {
+    display: none;
+  }
+
+  .carousel-wrapper .swiper {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  .carousel-wrapper .manga-image-container,
+  .carousel-wrapper .manga-image {
+    height: 220px;
+  }
+}

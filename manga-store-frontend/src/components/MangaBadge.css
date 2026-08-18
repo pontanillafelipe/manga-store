@@ -1,0 +1,39 @@
+.manga-badge {
+  position: absolute;
+  top: 16px;
+  left: -38px;
+
+  width: 150px;
+  padding: 6px 0;
+
+  text-align: center;
+  transform: rotate(-45deg);
+
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  white-space: pre-line;
+  line-height: 1.1;
+
+  z-index: 10;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+}
+
+.manga-badge-presale {
+  background: #ff9800;
+}
+
+.manga-badge-new {
+  background: #2ecc71;
+}
+
+.manga-badge-bestseller {
+  background: #e53935;
+}
+
+.manga-badge-stock {
+  background: #1976d2;
+}

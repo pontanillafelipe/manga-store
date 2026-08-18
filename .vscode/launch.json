@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MangaStoreApplication<manga-store>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mangastore.MangaStoreApplication",
+            "projectName": "manga-store",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

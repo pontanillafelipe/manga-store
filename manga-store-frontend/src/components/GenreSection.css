@@ -32,7 +32,6 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4);
 }
 
 .genre-card span {
@@ -45,4 +44,17 @@
 
 .genre-card:hover {
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .genre-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    width: calc(100% - 20px);
+    margin-bottom: 35px;
+  }
+
+  .genre-card {
+    aspect-ratio: 16 / 7;
+  }
 }

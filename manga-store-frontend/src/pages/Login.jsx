@@ -2,20 +2,19 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
-import "./Login.css";
+import "../styles/Login.css";
 
 function Login() {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useContext(AuthContext);
   const { user } = useContext(AuthContext);
 
-    useEffect(() => {
+  useEffect(() => {
     if (user) {
-        navigate("/");
+      navigate("/");
     }
-    }, [user]);
+  }, [user]);
 
   const navigate = useNavigate();
 
@@ -23,13 +22,12 @@ function Login() {
     e.preventDefault();
 
     try {
-
       const response = await fetch("http://localhost:8080/api/auth/login", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
       });
 
       if (!response.ok) {
@@ -42,68 +40,54 @@ function Login() {
       login(data);
 
       navigate("/");
-
     } catch (error) {
       alert(error.message);
     }
   };
 
-return (
+  return (
+    <div className="login-container">
+      <div className="login-card">
+        <h2 className="login-title">Iniciar sesión</h2>
 
-  <div className="login-container">
+        <p className="login-subtitle">¡Bienvenido a Manga X Store!</p>
 
-    <div className="login-card">
+        <form onSubmit={handleLogin}>
+          <div className="login-form-group">
+            <label>Email</label>
 
-      <h2 className="login-title">
-        Iniciar sesión
-      </h2>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Ingresa tu correo"
+            />
+          </div>
 
-      <p className="login-subtitle">
-        Bienvenido de nuevo a Manga X Store
-      </p>
+          <div className="login-form-group">
+            <label>Contraseña</label>
 
-      <form onSubmit={handleLogin}>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Ingresa tu contraseña"
+            />
+          </div>
 
-        <div className="login-form-group">
+          <button type="submit" className="login-btn-submit">
+            Iniciar sesión
+          </button>
 
-          <label>Email</label>
-
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Ingresa tu correo"
-          />
-
-        </div>
-
-        <div className="login-form-group">
-
-          <label>Contraseña</label>
-
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Ingresa tu contraseña"
-          />
-
-        </div>
-
-        <button
-          type="submit"
-          className="login-btn-submit"
-        >
-          Iniciar sesión
-        </button>
-
-      </form>
-
+          <p className="register-link">
+            ¿No tienes una cuenta?{" "}
+            <span onClick={() => navigate("/register")}>Crear cuenta</span>
+          </p>
+          
+        </form>
+      </div>
     </div>
-
-  </div>
-
-);
+  );
 }
 
 export default Login;

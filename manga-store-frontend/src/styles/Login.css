@@ -102,3 +102,20 @@
   background: #e56710;
   transform: translateY(-1px);
 }
+
+.register-link {
+  margin-top: 20px;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+}
+
+.register-link span {
+  color: #ff7a18;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.register-link span:hover {
+  color: #e56710;
+}

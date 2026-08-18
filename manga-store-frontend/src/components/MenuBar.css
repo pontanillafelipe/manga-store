@@ -18,15 +18,14 @@
 }
 
 .menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   background: transparent;
-
   padding: 10px 18px;
-
   border-radius: 999px;
-
   cursor: pointer;
-
   font-size: 14px;
   font-weight: 600;
 
@@ -38,4 +37,22 @@
 .menu-item:hover {
   background-color: #ff7a18;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .menu-bar {
+    width: calc(100% - 30px);
+    margin: 15px auto 25px;
+    padding: 8px;
+    gap: 4px;
+    overflow-x: auto;
+    justify-content: flex-start;
+    border-radius: 16px;
+  }
+
+  .menu-item {
+    flex-shrink: 0;
+    padding: 9px 13px;
+    font-size: 12px;
+  }
 }

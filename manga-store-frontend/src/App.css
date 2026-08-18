@@ -35,3 +35,49 @@ body {
   transform: translateZ(0);
   will-change: transform;
 }
+
+.pagination {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  margin:40px 0;
+}
+
+.pagination button {
+  background:#ff7a18;
+  color:white;
+  border:none;
+  padding:10px 22px;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.2s ease;
+}
+
+.pagination button:hover:not(:disabled){
+  background:#e56710;
+  transform:translateY(-2px);
+}
+
+.pagination button:disabled{
+  opacity:0.5;
+  cursor:not-allowed;
+}
+
+.pagination span{
+  font-weight:600;
+  color:#333;
+}
+
+@media (max-width: 768px) {
+
+  .main-container {
+    width: 100%;
+    max-width: none;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}

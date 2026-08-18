@@ -1,16 +1,21 @@
 .manga-card {
-  width: 220px;
+  width: 100%;
   background: white;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .manga-card:hover {
   transform: translateY(-5px);
   transition: 0.2s;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .manga-image {
@@ -21,6 +26,9 @@
 }
 
 .manga-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   padding: 12px;
 }
 
@@ -30,52 +38,199 @@
   margin-bottom: 6px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  min-height: 64px;
+  line-height: 1.4;
+  margin-top: 0;
 }
 
 .manga-price {
   font-size: 19px;
   font-weight: 600;
+  margin: 0 0 10px 0;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+}
+
+.manga-price-sale {
+  min-height: 46px;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.1;
+}
+
+.manga-original-price {
+  font-size: 13px;
+  color: #999;
+  text-decoration: line-through;
+  margin-bottom: 2px;
+}
+
+.manga-sale-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.manga-sale-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e85d04;
+}
+
+.manga-discount {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: #e85d04;
+  padding: 3px 6px;
+  border-radius: 5px;
 }
 
 .add-cart-btn {
-  width: 100%;
-  background-color: #ff7a18;
-  border: none;
-  padding: 10px;
-  border-radius: 6px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+  width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#ff7a18;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.25s ease;
 }
 
 .add-cart-btn:hover {
   background-color: #e56710;
+  transform:translateY(-2px);
+}
+
+.add-cart-btn:disabled{
+
+    background:#c7c7c7;
+
+    cursor:not-allowed;
+
+    transform:none;
+
 }
 
 .manga-image-container {
   position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 300px;
 }
 
-.stock-badge {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  padding: 2px 7px;
-  font-size: 10px;
-  font-weight: 600;
-  border-radius: 0;
-  color: white;
-}
-.available {
-  background-color: #0f766e;
+.manga-editorial{
+
+    font-size:12px;
+
+    font-weight:600;
+
+    color:#888;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    margin-bottom: 0;
+    margin-top:5px;
+    margin-left:13px;
+
 }
 
-.sold-out {
-  background-color: #dc3545;
+.sold-out-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  color: white;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sold-out-image {
+  filter: grayscale(100%) brightness(0.7);
+}
+
+@media (max-width: 768px) {
+  .manga-image-container {
+    height: 240px;
+  }
+
+  .manga-image {
+    height: 240px;
+  }
+
+  .manga-title {
+    font-size: 14px;
+    min-height: 58px;
+  }
+
+  .manga-editorial {
+    font-size: 11px;
+  }
+
+  .manga-price {
+    font-size: 17px;
+  }
+
+  .manga-sale-price {
+    font-size: 18px;
+  }
+
+  .add-cart-btn {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .manga-image-container {
+    height: 210px;
+  }
+
+  .manga-image {
+    height: 210px;
+  }
+
+  .manga-info {
+    padding: 10px;
+  }
+
+  .manga-title {
+    font-size: 13px;
+    min-height: 55px;
+  }
+
+  .manga-original-price {
+    font-size: 12px;
+  }
+
+  .manga-sale-price {
+    font-size: 17px;
+  }
+
+  .manga-discount {
+    font-size: 10px;
+    padding: 3px 5px;
+  }
 }

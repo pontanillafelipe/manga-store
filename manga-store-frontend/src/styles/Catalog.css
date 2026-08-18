@@ -1,0 +1,286 @@
+.catalog-container {
+  padding: 40px 20px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.catalog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.catalog-title {
+  font-size: 38px;
+  font-weight: 800;
+  color: #222;
+  margin: 0 0 10px;
+  letter-spacing: 0.5px;
+}
+
+.catalog-title::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  background: #ff7a18;
+  border-radius: 999px;
+  margin-top: 12px;
+}
+
+.catalog-count {
+  color: #777;
+  margin: 0;
+  font-size: 15px;
+  flex: 1;
+}
+
+/* =========================
+   SORT
+========================= */
+
+.catalog-sort {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: white;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.catalog-content {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 30px;
+  align-items: start;
+}
+
+.catalog-content.search-active {
+  grid-template-columns: 1fr;
+}
+/* =========================
+   SIDEBAR
+========================= */
+
+.catalog-sidebar {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+}
+
+.catalog-sidebar h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: #222;
+}
+
+.catalog-sidebar h3:not(:first-child) {
+  margin-top: 25px;
+}
+
+.catalog-sidebar label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 9px 0;
+  cursor: pointer;
+  font-size: 14px;
+  color: #444;
+}
+
+.catalog-sidebar input {
+  accent-color: #ff7a18;
+  cursor: pointer;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.catalog-main {
+  width: 100%;
+  min-width: 0;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.catalog-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 25px;
+}
+
+/* =========================
+   PAGINATION
+========================= */
+
+.catalog-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 45px 0 20px;
+  flex-wrap: wrap;
+}
+
+.catalog-pagination button {
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  background: #fff;
+  color: #444;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  transition: 0.2s;
+}
+
+.catalog-pagination button:hover:not(:disabled) {
+  background: #ff7a18;
+  color: white;
+  border-color: #ff7a18;
+}
+
+.catalog-pagination button.active {
+  background: #ff7a18;
+  color: white;
+  border-color: #ff7a18;
+}
+
+.catalog-pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+
+  .catalog-content {
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 25px;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .catalog-sidebar {
+    padding: 16px;
+  }
+
+}
+
+/* =========================
+   TABLET PEQUEÑA
+========================= */
+
+@media (max-width: 800px) {
+
+  .catalog-container {
+    padding: 30px 15px;
+  }
+
+  .catalog-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .catalog-sort {
+    width: 100%;
+  }
+
+  .catalog-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .catalog-sidebar {
+    width: auto;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+  .catalog-container {
+    padding: 25px 12px;
+  }
+
+  .catalog-title {
+    font-size: 30px;
+  }
+
+  .catalog-count {
+    font-size: 14px;
+  }
+
+  .catalog-sidebar {
+    padding: 16px;
+  }
+
+  .catalog-sidebar label {
+    font-size: 13px;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .catalog-pagination {
+    gap: 6px;
+    margin-top: 35px;
+  }
+
+  .catalog-pagination button {
+    width: 36px;
+    height: 36px;
+  }
+
+}
+
+/* =========================
+   MOBILE MUY PEQUEÑO
+========================= */
+
+@media (max-width: 360px) {
+
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

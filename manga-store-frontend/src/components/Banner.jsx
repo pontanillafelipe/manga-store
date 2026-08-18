@@ -1,11 +1,12 @@
+import { Link } from "react-router-dom";
 import "./Banner.css";
 import banner from "../assets/mangas/banner.jpg";
 
 function Banner() {
   return (
-    <div className="banner">
+    <Link to="/" className="banner">
       <img src={banner} alt="Banner Manga Store" />
-    </div>
+    </Link>
   );
 }
 
