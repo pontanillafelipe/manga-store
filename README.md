@@ -13,13 +13,13 @@ Aplicación fullstack de e-commerce para la gestión y compra de mangas online. 
 ## Vista previa
 
 ### Catálogo
-![Catálogo de mangas](docs/preview-catalogo.jpg)
+![Catálogo de mangas](docs/preview-catalogo.png)
 
 ### Detalle Manga
-![Detalle y manga](docs/preview-manga.jpg)
+![Detalle y manga](docs/preview-manga.png)
 
 ### Panel de administración
-![Panel de administración](docs/preview-admin.jpg)
+![Panel de administración](docs/preview-admin.png)
 
 ## Funcionalidades
 
