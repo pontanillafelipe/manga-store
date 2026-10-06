@@ -3,20 +3,25 @@ package com.mangastore.service;
 import com.mangastore.exception.ResourceNotFoundException;
 import com.mangastore.model.Manga;
 import com.mangastore.repository.MangaRepository;
+import com.mangastore.specification.MangaSpecification;
+
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import com.mangastore.specification.MangaSpecification;
 import org.springframework.data.jpa.domain.Specification;
+
 import java.util.List;
+
+
+
 
 @Service
 public class MangaService {
 
     private final MangaRepository mangaRepository;
-
+    
     public MangaService(MangaRepository mangaRepository) {
-        this.mangaRepository = mangaRepository;
+    this.mangaRepository = mangaRepository;
     }
 
     public List<Manga> searchMangasByTitle(String title) {
@@ -136,4 +141,5 @@ public class MangaService {
 
         return mangaRepository.findAll(specification, pageable);
     }
+    
 }
